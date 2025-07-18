@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.3, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace
+configfile: pyproject.toml
+collecting ... collected 4 items
+
+test_app.py::test_imports PASSED                                         [ 25%]
+test_app.py::test_models PASSED                                          [ 50%]
+test_app.py::test_utilities PASSED                                       [ 75%]
+test_app.py::test_main_app PASSED                                        [100%]
+
+======================== 4 passed, 4 warnings in 0.02s =========================
