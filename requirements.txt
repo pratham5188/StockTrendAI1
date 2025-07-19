@@ -1,3 +1,4 @@
+# Core dependencies
 numpy>=1.24.0,<2.0
 pandas>=2.0.0
 plotly>=5.15.0
@@ -7,18 +8,26 @@ yfinance>=0.2.18
 xgboost>=2.0.0
 textblob>=0.17.1
 
-# Optional dependencies for enhanced functionality
-# Install with: pip install -r requirements.txt
-# For full functionality, also install:
-# pip install lightgbm>=4.0.0
-# pip install tensorflow>=2.13.0
-# pip install keras>=3.0.0
-# pip install prophet>=1.1.4
-# pip install jax[cpu]>=0.4.0
+# Additional dependencies for full functionality
+lightgbm>=4.0.0
+tensorflow>=2.13.0
+keras>=3.0.0
+prophet>=1.1.4
+jax[cpu]>=0.4.0
 
-# These packages have fallback implementations if not available
-# lightgbm>=4.0.0  # Used in Stacking Ensemble (fallback: XGBoost alternative)
-# tensorflow>=2.13.0  # Used in GRU/LSTM models (fallback: simple prediction)
-# keras>=3.0.0  # Used in some models (fallback: sklearn-based methods)
-# prophet>=1.1.4  # Used in Prophet model (fallback: trend-based prediction)
-# jax[cpu]>=0.4.0  # Used in some models (fallback: standard implementation)
+# Web scraping and data processing
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Time series and statistical analysis
+scipy>=1.10.0
+statsmodels>=0.14.0
+
+# Visualization and UI
+altair>=5.0.0
+pydeck>=0.8.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3

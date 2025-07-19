@@ -9,6 +9,11 @@ from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
+# Health check function for deployment
+def health_check():
+    """Health check endpoint for deployment monitoring"""
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
 # Import custom modules
 from utils.data_fetcher import DataFetcher
 from utils.technical_indicators import TechnicalIndicators
@@ -2315,10 +2320,13 @@ class StockTrendAI:
 
 # Run the application
 if __name__ == "__main__":
-    app = StockTrendAI()
-    
-    # Main application logic
     try:
+        # Health check for deployment monitoring
+        health_status = health_check()
+        
+        # Initialize the application
+        app = StockTrendAI()
+        
         # Render header
         app.render_header()
         
@@ -2497,3 +2505,5 @@ if __name__ == "__main__":
     except Exception as e:
         st.error(f"❌ Application error: {str(e)}")
         st.info("Please refresh the page and try again.")
+        # Log error for debugging
+        st.expander("🔧 Debug Info").write(f"Error details: {type(e).__name__}: {str(e)}")
