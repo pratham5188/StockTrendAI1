@@ -1,9 +1,3 @@
-# Ultra-minimal requirements - Last resort for deployment issues
-# Only the most essential packages
-
 streamlit
 pandas
 numpy
-plotly
-yfinance
-scikit-learn
