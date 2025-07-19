@@ -7,31 +7,46 @@ from plotly.subplots import make_subplots
 import time
 from datetime import datetime, timedelta
 import warnings
+import os
+import sys
+
+# Suppress all warnings for cleaner deployment
 warnings.filterwarnings('ignore')
+
+# Set environment variables for better performance
+os.environ['STREAMLIT_SERVER_HEADLESS'] = 'true'
+os.environ['STREAMLIT_SERVER_PORT'] = '8501'
+os.environ['STREAMLIT_SERVER_ADDRESS'] = '0.0.0.0'
 
 # Health check function for deployment
 def health_check():
     """Health check endpoint for deployment monitoring"""
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
-# Import custom modules
-from utils.data_fetcher import DataFetcher
-from utils.technical_indicators import TechnicalIndicators
-from models.xgboost_model import XGBoostPredictor
-from models.lstm_model import LSTMPredictor
-from models.prophet_model import ProphetPredictor
-from models.ensemble_model import EnsemblePredictor
-from models.transformer_model import TransformerPredictor
-from models.gru_model import GRUPredictor
-from models.stacking_ensemble import StackingEnsemblePredictor
-from utils.model_utils import ModelUtils
-from utils.portfolio_tracker import PortfolioTracker
-from utils.advanced_analytics import AdvancedAnalytics
-from utils.news_sentiment import NewsSentimentAnalyzer
-from utils.ui_components import UIComponents
-from utils.model_info import ModelInfo
-from styles.custom_css import get_custom_css
-from config.settings import INDIAN_STOCKS, INDIAN_INDICES, DEFAULT_STOCK
+# Import custom modules with error handling
+try:
+    from utils.data_fetcher import DataFetcher
+    from utils.technical_indicators import TechnicalIndicators
+    from models.xgboost_model import XGBoostPredictor
+    from models.lstm_model import LSTMPredictor
+    from models.prophet_model import ProphetPredictor
+    from models.ensemble_model import EnsemblePredictor
+    from models.transformer_model import TransformerPredictor
+    from models.gru_model import GRUPredictor
+    from models.stacking_ensemble import StackingEnsemblePredictor
+    from utils.model_utils import ModelUtils
+    from utils.portfolio_tracker import PortfolioTracker
+    from utils.advanced_analytics import AdvancedAnalytics
+    from utils.news_sentiment import NewsSentimentAnalyzer
+    from utils.ui_components import UIComponents
+    from utils.model_info import ModelInfo
+    from styles.custom_css import get_custom_css
+    from config.settings import INDIAN_STOCKS, INDIAN_INDICES, DEFAULT_STOCK
+    print("All custom modules imported successfully")
+except ImportError as e:
+    st.error(f"❌ Import error: {str(e)}")
+    st.info("Please ensure all required modules are available.")
+    st.stop()
 
 # Page configuration
 st.set_page_config(
