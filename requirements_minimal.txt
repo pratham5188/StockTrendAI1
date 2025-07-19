@@ -1,6 +1,4 @@
-# Ultra-minimal requirements for Streamlit Cloud deployment
-# Only essential dependencies to avoid conflicts
-
+# Minimal requirements for Streamlit Cloud deployment
 streamlit
 pandas
 numpy
