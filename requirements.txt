@@ -1,17 +1,5 @@
-# Ultra-minimal requirements for Streamlit Cloud deployment
-# Only essential dependencies to avoid conflicts
-
 streamlit
 pandas
 numpy
 plotly
 yfinance
-scikit-learn
-xgboost
-lightgbm
-prophet
-textblob
-requests
-beautifulsoup4
-scipy
-matplotlib
